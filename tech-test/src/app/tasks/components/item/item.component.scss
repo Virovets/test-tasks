@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  padding: 10px 0;
+  .form {
+    position: relative;
+
+    .line {
+      width: 94%;
+      height: 2px;
+      top: calc(50% - 1px);
+      display: block;
+      position: absolute;
+      background-color: #808080a1;
+      right: 0;
+    }
+
+    .inputs-group {
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-right: 5px;
+        &[type='checkbox'] {
+          cursor: pointer;
+
+          &.hidden {
+            opacity: 0;
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    .invalid-message {
+      color: red;
+    }
+  }
+
+  .buttons {
+    margin-left: 5px;
+
+    button {
+      margin-left: 5px;
+    }
+  }
+
+}

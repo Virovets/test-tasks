@@ -1,0 +1,7 @@
+<div>
+  Filter:
+  <select (change)="onFilter($event.target.value)">
+    <option selected disabled >Choose filter</option>
+    <option *ngFor="let filter of filters" [value]="filter.value" >{{filter.label}}</option>
+  </select>
+</div>

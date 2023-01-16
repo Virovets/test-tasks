@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="form" [formGroup]="form">
+    <div class="inputs-group">
+      <input [ngClass]="{'hidden': !task}" type="checkbox" formControlName="done" (change)="doneTask()">
+      <input type="text" formControlName="label" placeholder="Label...">
+      <input type="text" formControlName="description" placeholder="Description...">
+      <select formControlName="category">
+        <option *ngFor="let category of taskCategories"
+                [selected]="category === form.get('category').value"
+                [value]="category">
+          {{category}}
+        </option>
+      </select>
+    </div>
+
+    <div class="invalid-message" *ngIf="isFormInvalid">
+      Label field is required
+    </div>
+
+    <div *ngIf="task && task.done" class="line"></div>
+  </div>
+
+  <div class="buttons">
+    <button *ngIf="task" (click)="editTask()">Edit</button>
+    <button *ngIf="task" (click)="deleteTask()">Delete</button>
+    <button *ngIf="!task" (click)="addTask()">Add new</button>
+  </div>
+</div>
+
+

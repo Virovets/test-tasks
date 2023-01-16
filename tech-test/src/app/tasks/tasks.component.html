@@ -1,0 +1,18 @@
+<div class="filters">
+  <app-filter (filter)="filter($event)"></app-filter>
+</div>
+
+<div>
+  <app-item [task]="null"
+            (add)="onAdd($event)"
+  ></app-item>
+</div>
+
+<div *ngFor="let task of tasks">
+  <app-item [task]="task"
+            (edit)="onEdit($event)"
+            (delete)="onDelete($event)"
+            (done)="onDone($event)"
+  ></app-item>
+</div>
+
